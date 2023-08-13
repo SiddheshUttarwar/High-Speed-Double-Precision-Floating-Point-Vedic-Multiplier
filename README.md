@@ -22,7 +22,7 @@ implemented in Verilog HDL, and simulations and synthesis are conducted using Vi
 algorithms and floating-point Vedic multipliers, with reduced delay, power consumption, and
 space utilization.
 
-## Proposed Model
+## proposedModel
 
 ![image](https://github.com/SiddheshUttarwar/High-Speed-Double-Precision-Floating-Point-Vedic-Multiplier/assets/69843720/deb8d8f0-0165-43b5-a073-57593240a892)
 
