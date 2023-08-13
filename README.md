@@ -28,15 +28,15 @@ space utilization.
 
 
 ## Algorithm
-A = ±1.M1*(2^E1) , 
-B = ±1.M2*(2^E2) 
-A = {S1[63] , E1[62:52] , M1[51:0] }
-B = {S2[63] , E2[62:52] , M2[51:0] }
-M= {S3[63] , E3[62:52] , M3[51:0] }
-P[105:0] = { 1 , A[51:0] } * { 1 , B[51:0] }
-E = A[62:52] + B[62:52] – 11’d1023
-The inputs to normalizer are E and P and outputs are exponent (NE-11 BITS) and mantissa (NM-52 BITS)
-M[51:0] = NM , 
-M[62:52] = NE , 
-M[63] = A[63] XOR B[63]
+A = ±1.M1*(2^E1) ,\ 
+B = ±1.M2*(2^E2) \
+A = {S1[63] , E1[62:52] , M1[51:0] }\
+B = {S2[63] , E2[62:52] , M2[51:0] }\
+M= {S3[63] , E3[62:52] , M3[51:0] }\
+P[105:0] = { 1 , A[51:0] } * { 1 , B[51:0] }\
+E = A[62:52] + B[62:52] – 11’d1023\
+The inputs to normalizer are E and P and outputs are exponent (NE-11 BITS) and mantissa (NM-52 BITS)\
+M[51:0] = NM , \
+M[62:52] = NE , \
+M[63] = A[63] XOR B[63]\
 
