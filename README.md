@@ -1,9 +1,5 @@
 # High-Speed-Double-Precision-Floating-Point-Vedic-Multiplier
 
-# VLSI Project Name
-
-[Include a brief description of your VLSI project here. Provide an overview of the goals, objectives, and main features.]
-
 ## Table of Contents
 
 - [Overview](#overview)
