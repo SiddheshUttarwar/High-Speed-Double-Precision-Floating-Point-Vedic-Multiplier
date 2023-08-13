@@ -4,9 +4,7 @@
 
 - [Abstract](#Abstract)
 - [Proposed Model](#proposedModel)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
+- [Algorithm](#Algorithm)
 
 ## Abstract
 
@@ -29,24 +27,16 @@ space utilization.
 ![image](https://github.com/SiddheshUttarwar/High-Speed-Double-Precision-Floating-Point-Vedic-Multiplier/assets/69843720/deb8d8f0-0165-43b5-a073-57593240a892)
 
 
-## Usage
-
-[Provide detailed usage instructions, including how to instantiate your VLSI design in tools like Xilinx Vivado or any other relevant tools. Include code examples, screenshots, or diagrams to help users understand how to use your project.]
-
-## Contributing
-
-[Indicate that you welcome contributions to your project. Provide guidelines for submitting pull requests, reporting issues, or suggesting enhancements. If you have specific areas where you need help, mention them here.]
-
-## License
-
-[Specify the license under which your VLSI project is released. Choose an appropriate open-source license (e.g., MIT, Apache, GPL) and provide a link to the full license text.]
-
-[Include any additional sections that are relevant to your project, such as acknowledgments, credits, or references.]
-
-## Contact
-
-[Provide your contact information (e.g., email, GitHub profile) for users to reach out if they have questions, feedback, or inquiries.]
-
----
-[Optional: Include badges or shields to showcase project status, license, build status, etc.]
+## Algorithm
+A = ±1.M1*(2^E1) , 
+B = ±1.M2*(2^E2) 
+A = {S1[63] , E1[62:52] , M1[51:0] }
+B = {S2[63] , E2[62:52] , M2[51:0] }
+M= {S3[63] , E3[62:52] , M3[51:0] }
+P[105:0] = { 1 , A[51:0] } * { 1 , B[51:0] }
+E = A[62:52] + B[62:52] – 11’d1023
+The inputs to normalizer are E and P and outputs are exponent (NE-11 BITS) and mantissa (NM-52 BITS)
+M[51:0] = NM , 
+M[62:52] = NE , 
+M[63] = A[63] XOR B[63]
 
