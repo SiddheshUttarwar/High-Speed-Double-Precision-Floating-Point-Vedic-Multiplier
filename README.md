@@ -2,20 +2,27 @@
 
 ## Table of Contents
 
-- [Overview](#overview)
-- [Getting Started](#getting-started)
+- [Abstract](#Abstract)
 - [Project Structure](#project-structure)
 - [Usage](#usage)
 - [Contributing](#contributing)
 - [License](#license)
 
-## Overview
+## Abstract
 
-[Provide a more detailed overview of your VLSI project. Explain its significance, potential applications, and any challenges you aimed to address.]
-
-## Getting Started
-
-[Provide clear instructions on how to set up and run your VLSI project. Include prerequisites, installation steps, and any dependencies required. You can also include examples of commands to compile or run the project.]
+In the field of digital signal processing, multiplication and addition operations involving
+floating-point numbers are crucial. To achieve efficient performance while reducing on-chip
+area and memory consumption, it is necessary to design a multiplication algorithm that
+minimizes delay and area consumption. This thesis proposes a method for multiplying
+double-precision floating-point numbers using Vedic mathematics. The proposed algorithm
+involves three steps: sign generation, exponent generation, and mantissa multiplication. The
+Urdhav-trayagbhaym sutra is used for mantissa multiplication due to its efficiency and
+reduced space consumption compared to other multiplication algorithms. This thesis also
+proposes the algorithm to multiply prime bit Vedic multiplication. The proposed multiplier is
+implemented in Verilog HDL, and simulations and synthesis are conducted using Vivado
+2022.2 software. The results demonstrate that the proposed algorithm outperforms existing
+algorithms and floating-point Vedic multipliers, with reduced delay, power consumption, and
+space utilization.
 
 ## Project Structure
 
