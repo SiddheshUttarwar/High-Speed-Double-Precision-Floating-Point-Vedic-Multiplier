@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Publication Explainer: Prime Bit Vedic Multiplier (Double Precision)</title>
+    <title>Animated Demo: Double-Precision Vedic Multiplier</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
@@ -11,104 +11,78 @@
   </head>
   <body>
     <header class="hero">
-      <p class="tag">Publication-First Technical Explainer</p>
-      <h1>Efficient Prime Bit Vedic Multiplier for Double Precision Floating Point Numbers</h1>
-      <p class="sub">This page follows the published patent-journal record and explains the approach in plain language before showing how to reproduce the RTL implementation.</p>
-      <div class="actions">
-        <a class="btn primary" href="https://github.com/SiddheshUttarwar/High-Speed-Double-Precision-Floating-Point-Vedic-Multiplier/blob/main/Patent.pdf">Published Document</a>
-        <a class="btn ghost" href="https://github.com/SiddheshUttarwar/High-Speed-Double-Precision-Floating-Point-Vedic-Multiplier">Repository</a>
+      <p class="chip">Animated Project Walkthrough</p>
+      <h1>Double-Precision Floating-Point Prime Bit Vedic Multiplier</h1>
+      <p class="lead">See how data moves through sign, exponent, mantissa, normalization, and packing stages while sample vectors execute like a live run.</p>
+      <div class="cta-row">
+        <button id="runDemo" class="btn primary">Run Visualization</button>
+        <a class="btn ghost" href="https://github.com/SiddheshUttarwar/High-Speed-Double-Precision-Floating-Point-Vedic-Multiplier/blob/main/Patent.pdf">Published Document</a>
       </div>
     </header>
 
-    <main class="wrap">
-      <section class="panel">
-        <h2>Abstract (Plain Language)</h2>
-        <p>The publication proposes a Prime Bit Vedic multiplier method to improve double-precision floating-point multiplication efficiency, especially in the mantissa multiplication stage, with the goal of reducing delay and hardware cost.</p>
+    <main class="layout">
+      <section class="card">
+        <h2>How It Flows</h2>
+        <div id="pipeline" class="pipeline">
+          <div class="stage">Input Split<br><span>A/B -> sign, exp, mantissa</span></div>
+          <div class="stage">Sign XOR<br><span>sign_out = sign_a ^ sign_b</span></div>
+          <div class="stage">Exponent Block<br><span>ea + eb - 1023</span></div>
+          <div class="stage">53x53 Vedic Mantissa<br><span>hierarchical partial products</span></div>
+          <div class="stage">Normalize<br><span>shift + exponent adjust</span></div>
+          <div class="stage">Pack Output<br><span>64-bit result</span></div>
+          <div class="token"></div>
+        </div>
       </section>
 
-      <section class="panel cols2">
+      <section class="card cols2">
         <article>
-          <h2>1) Research Problem</h2>
-          <p>Double-precision multipliers are essential in DSP and scientific workloads, but mantissa multiplication can become a major speed bottleneck in hardware implementations.</p>
+          <h2>Live Vector Playback</h2>
+          <p class="mono">A: <span id="aHex">0x0000000000000000</span></p>
+          <p class="mono">B: <span id="bHex">0x0000000000000000</span></p>
+          <p class="mono">OUT: <span id="oHex">0x0000000000000000</span></p>
+          <p id="caseName" class="note">Case: idle</p>
         </article>
         <article>
-          <h2>2) Proposed Idea</h2>
-          <p>Apply Prime Bit decomposition with Vedic multiplication hierarchy so partial products can be combined efficiently and with lower delay impact than straightforward large-block multiplication.</p>
-        </article>
-      </section>
-
-      <section class="panel">
-        <h2>3) Algorithm Flow (Publication-Aligned)</h2>
-        <ol>
-          <li>Extract sign, exponent, and mantissa from two 64-bit inputs.</li>
-          <li>Compute result sign with XOR.</li>
-          <li>Add exponents and apply IEEE-754 bias correction.</li>
-          <li>Multiply 53-bit mantissas using hierarchical Vedic blocks.</li>
-          <li>Normalize product mantissa and adjust exponent if required.</li>
-          <li>Pack final sign, exponent, and mantissa into output format.</li>
-        </ol>
-      </section>
-
-      <section class="panel cols2">
-        <article>
-          <h2>4) Publication Metadata</h2>
+          <h2>Publication Facts</h2>
           <ul>
-            <li><strong>Jurisdiction:</strong> India</li>
-            <li><strong>Application:</strong> 202341051131 A</li>
-            <li><strong>Filed:</strong> 29/07/2023</li>
-            <li><strong>Published:</strong> 01/09/2023</li>
-            <li><strong>Issue:</strong> Patent Office Journal 35/2023</li>
-            <li><strong>Claims:</strong> 7</li>
-          </ul>
-        </article>
-        <article>
-          <h2>5) Applicant and Inventors</h2>
-          <ul>
-            <li><strong>Applicant:</strong> VNR VJIET</li>
-            <li><strong>Inventors listed:</strong> Dr. Aruru Sai Kumar, N Neelima, Siddhesh Uttarwar</li>
-          </ul>
-          <p>Details are extracted from the uploaded publication PDF in this repository.</p>
-        </article>
-      </section>
-
-      <section class="panel cols2">
-        <article>
-          <h2>6) What the Current RTL Implements</h2>
-          <ul>
-            <li>64-bit datapath decomposition.</li>
-            <li>53x53 mantissa multiplier hierarchy.</li>
-            <li>Exponent and normalizer blocks.</li>
-            <li>Icarus + Vivado runnable simulation flow.</li>
-          </ul>
-        </article>
-        <article>
-          <h2>7) Scope Limits</h2>
-          <ul>
-            <li>Focus on normalized finite test vectors.</li>
-            <li>Not a complete IEEE-754 corner-case engine yet.</li>
-            <li>NaN/Inf/subnormal handling needs extension for full compliance.</li>
+            <li>India application: 202341051131 A</li>
+            <li>Filed: 29/07/2023</li>
+            <li>Published: 01/09/2023</li>
+            <li>Claims: 7</li>
           </ul>
         </article>
       </section>
 
-      <section class="panel cols2">
+      <section class="card">
+        <h2>What You Are Seeing</h2>
+        <div class="bars">
+          <div class="bar"><span>Sign path latency</span><i></i></div>
+          <div class="bar"><span>Exponent path latency</span><i></i></div>
+          <div class="bar"><span>Mantissa multiplication effort</span><i></i></div>
+          <div class="bar"><span>Normalization activity</span><i></i></div>
+        </div>
+        <p class="note">Bars animate with the demo to visualize relative work per stage (conceptual, not measured timing).</p>
+      </section>
+
+      <section class="card cols2">
         <article>
-          <h2>8) Reproduce in This Repo</h2>
+          <h2>Run It Locally</h2>
           <p class="mono">make run</p>
           <p class="mono">run_icarus.bat</p>
           <p class="mono">run_vivado.bat</p>
-          <p>Testbench uses directed IEEE-754 vectors with pass/fail checks.</p>
         </article>
         <article>
-          <h2>9) Legal and Usage Note</h2>
-          <p>Code is under MIT License. Patent rights are separate for the publication-linked concept. See the repository patent notice before commercial deployment.</p>
+          <h2>Scope</h2>
+          <p>Current RTL emphasizes normalized finite vectors and pipeline understanding. Full IEEE-754 corner-case handling is a next-step extension.</p>
         </article>
       </section>
     </main>
 
     <footer class="foot">
-      <span>Educational interpretation of the published record.</span>
-      <span>Use the full publication PDF for official legal and technical details.</span>
+      <span>MIT source license. Patent rights handled separately.</span>
+      <span>Built as a visual explainer for non-specialists and engineers.</span>
     </footer>
+
+    <script src="script.js"></script>
   </body>
 </html>
