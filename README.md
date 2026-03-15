@@ -3,6 +3,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![HDL](https://img.shields.io/badge/HDL-Verilog-orange)](#)
 [![CI](https://img.shields.io/badge/CI-Icarus%20Verilog-black)](.github/workflows/icarus-ci.yml)
+[![Hygiene](https://img.shields.io/badge/Repo-Hygiene-blue)](.github/workflows/repo-hygiene.yml)
 
 A user-ready Verilog RTL implementation of a 64-bit floating-point multiplier that uses a hierarchical Vedic multiplier for mantissa multiplication.
 
@@ -107,6 +108,15 @@ Vivado flow steps:
 - `run_icarus.*`, `run_vivado.*`: user runner scripts
 - `docs/legal/PATENT_NOTICE.md`: patent and IP notice
 - `Patent.pdf`: patent reference document in this repo
+
+## Community and Process
+
+- [Contributing Guide](CONTRIBUTING.md)
+- [Code of Conduct](CODE_OF_CONDUCT.md)
+- [Security Policy](SECURITY.md)
+- [Citation Metadata](CITATION.cff)
+- [Reproducibility Guide](docs/REPRODUCIBILITY.md)
+- [Benchmark Plan](docs/BENCHMARK_PLAN.md)
 
 ## Patent and Usage Notice
 
