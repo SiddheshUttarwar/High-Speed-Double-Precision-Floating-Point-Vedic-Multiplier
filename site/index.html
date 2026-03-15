@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Double-Precision Floating-Point Vedic Multiplier</title>
+    <title>Publication Explainer: Prime Bit Vedic Multiplier (Double Precision)</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
@@ -11,105 +11,104 @@
   </head>
   <body>
     <header class="hero">
-      <p class="tag">Patent Journal Publication Explained</p>
-      <h1>Efficient Prime Bit Vedic Multiplier for Double-Precision Floating-Point Numbers</h1>
-      <p class="sub">This page translates the published patent-journal entry and project implementation into plain language for students, recruiters, and engineers.</p>
+      <p class="tag">Publication-First Technical Explainer</p>
+      <h1>Efficient Prime Bit Vedic Multiplier for Double Precision Floating Point Numbers</h1>
+      <p class="sub">This page follows the published patent-journal record and explains the approach in plain language before showing how to reproduce the RTL implementation.</p>
       <div class="actions">
-        <a class="btn primary" href="https://github.com/SiddheshUttarwar/High-Speed-Double-Precision-Floating-Point-Vedic-Multiplier">Open GitHub Repo</a>
-        <a class="btn ghost" href="https://github.com/SiddheshUttarwar/High-Speed-Double-Precision-Floating-Point-Vedic-Multiplier/blob/main/Patent.pdf">Open Patent PDF</a>
+        <a class="btn primary" href="https://github.com/SiddheshUttarwar/High-Speed-Double-Precision-Floating-Point-Vedic-Multiplier/blob/main/Patent.pdf">Published Document</a>
+        <a class="btn ghost" href="https://github.com/SiddheshUttarwar/High-Speed-Double-Precision-Floating-Point-Vedic-Multiplier">Repository</a>
       </div>
     </header>
 
     <main class="wrap">
       <section class="panel">
-        <h2>Published Work in 60 Seconds</h2>
-        <ul>
-          <li><strong>Published entry:</strong> India Patent Office Journal, Issue 35/2023 (01/09/2023).</li>
-          <li><strong>Application:</strong> 202341051131 A (filed 29/07/2023).</li>
-          <li><strong>Title:</strong> Efficient Prime Bit Vedic Multiplier for Double Precision Floating Point Numbers.</li>
-          <li><strong>Core claim:</strong> Prime-bit Vedic multiplication can reduce delay/area impact for mantissa multiplication in double-precision arithmetic.</li>
-        </ul>
+        <h2>Abstract (Plain Language)</h2>
+        <p>The publication proposes a Prime Bit Vedic multiplier method to improve double-precision floating-point multiplication efficiency, especially in the mantissa multiplication stage, with the goal of reducing delay and hardware cost.</p>
       </section>
 
       <section class="panel cols2">
         <article>
-          <h2>Problem Being Solved</h2>
-          <p>Floating-point multiplication is used heavily in DSP, scientific computing, and accelerator pipelines. The slow part is often mantissa multiplication, which can become a timing bottleneck.</p>
+          <h2>1) Research Problem</h2>
+          <p>Double-precision multipliers are essential in DSP and scientific workloads, but mantissa multiplication can become a major speed bottleneck in hardware implementations.</p>
         </article>
         <article>
-          <h2>Plain-Language Idea</h2>
-          <p>Instead of one large multiplier block, the method decomposes multiplication into smaller Vedic-style blocks and combines them efficiently. This can improve speed while keeping hardware practical.</p>
+          <h2>2) Proposed Idea</h2>
+          <p>Apply Prime Bit decomposition with Vedic multiplication hierarchy so partial products can be combined efficiently and with lower delay impact than straightforward large-block multiplication.</p>
         </article>
       </section>
 
       <section class="panel">
-        <h2>Step-by-Step Algorithm (Simplified)</h2>
+        <h2>3) Algorithm Flow (Publication-Aligned)</h2>
         <ol>
-          <li>Split each 64-bit input into sign, exponent, and mantissa fields.</li>
-          <li>Compute output sign using XOR of input signs.</li>
-          <li>Add exponents and subtract the IEEE-754 bias.</li>
+          <li>Extract sign, exponent, and mantissa from two 64-bit inputs.</li>
+          <li>Compute result sign with XOR.</li>
+          <li>Add exponents and apply IEEE-754 bias correction.</li>
           <li>Multiply 53-bit mantissas using hierarchical Vedic blocks.</li>
-          <li>Normalize mantissa if product MSB requires shifting.</li>
-          <li>Pack sign, exponent, and mantissa back into 64-bit output.</li>
+          <li>Normalize product mantissa and adjust exponent if required.</li>
+          <li>Pack final sign, exponent, and mantissa into output format.</li>
         </ol>
       </section>
 
-      <section class="panel">
-        <h2>Extracted Publication Metadata</h2>
-        <div class="table-wrap">
-          <table>
-            <tbody>
-              <tr><th>Jurisdiction</th><td>India</td></tr>
-              <tr><th>Application Number</th><td>202341051131 A</td></tr>
-              <tr><th>Filing Date</th><td>29/07/2023</td></tr>
-              <tr><th>Publication Date</th><td>01/09/2023</td></tr>
-              <tr><th>Journal Issue</th><td>35/2023</td></tr>
-              <tr><th>Applicant</th><td>VNR VJIET (Vallurupalli Nageswara Rao Vignana Jyothi Institute of Engineering and Technology)</td></tr>
-              <tr><th>Inventors Listed</th><td>Dr. Aruru Sai Kumar, N Neelima, Siddhesh Uttarwar</td></tr>
-              <tr><th>No. of Pages / Claims</th><td>27 pages / 7 claims</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </section>
-
       <section class="panel cols2">
         <article>
-          <h2>What the Current RTL Implements</h2>
+          <h2>4) Publication Metadata</h2>
           <ul>
-            <li>Double-precision datapath decomposition.</li>
-            <li>53x53 hierarchical Vedic mantissa multiplier.</li>
-            <li>Normalizer and exponent path logic.</li>
-            <li>User-ready simulation flows for Icarus and Vivado.</li>
+            <li><strong>Jurisdiction:</strong> India</li>
+            <li><strong>Application:</strong> 202341051131 A</li>
+            <li><strong>Filed:</strong> 29/07/2023</li>
+            <li><strong>Published:</strong> 01/09/2023</li>
+            <li><strong>Issue:</strong> Patent Office Journal 35/2023</li>
+            <li><strong>Claims:</strong> 7</li>
           </ul>
         </article>
         <article>
-          <h2>Current Limits (Important)</h2>
+          <h2>5) Applicant and Inventors</h2>
           <ul>
-            <li>Focused on normalized finite operands.</li>
-            <li>NaN/Inf/subnormal edge behavior is not fully covered.</li>
-            <li>Not a complete IEEE-754 compliance core yet.</li>
+            <li><strong>Applicant:</strong> VNR VJIET</li>
+            <li><strong>Inventors listed:</strong> Dr. Aruru Sai Kumar, N Neelima, Siddhesh Uttarwar</li>
           </ul>
+          <p>Details are extracted from the uploaded publication PDF in this repository.</p>
         </article>
       </section>
 
       <section class="panel cols2">
         <article>
-          <h2>How to Reproduce</h2>
+          <h2>6) What the Current RTL Implements</h2>
+          <ul>
+            <li>64-bit datapath decomposition.</li>
+            <li>53x53 mantissa multiplier hierarchy.</li>
+            <li>Exponent and normalizer blocks.</li>
+            <li>Icarus + Vivado runnable simulation flow.</li>
+          </ul>
+        </article>
+        <article>
+          <h2>7) Scope Limits</h2>
+          <ul>
+            <li>Focus on normalized finite test vectors.</li>
+            <li>Not a complete IEEE-754 corner-case engine yet.</li>
+            <li>NaN/Inf/subnormal handling needs extension for full compliance.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="panel cols2">
+        <article>
+          <h2>8) Reproduce in This Repo</h2>
           <p class="mono">make run</p>
           <p class="mono">run_icarus.bat</p>
           <p class="mono">run_vivado.bat</p>
-          <p>Testbench: directed IEEE-754 vectors with pass/fail checks.</p>
+          <p>Testbench uses directed IEEE-754 vectors with pass/fail checks.</p>
         </article>
         <article>
-          <h2>IP and Licensing</h2>
-          <p>Source code is MIT licensed. Patent rights are separate. Review the repository <a href="https://github.com/SiddheshUttarwar/High-Speed-Double-Precision-Floating-Point-Vedic-Multiplier/blob/main/docs/legal/PATENT_NOTICE.md">Patent Notice</a> before commercial use.</p>
+          <h2>9) Legal and Usage Note</h2>
+          <p>Code is under MIT License. Patent rights are separate for the publication-linked concept. See the repository patent notice before commercial deployment.</p>
         </article>
       </section>
     </main>
 
     <footer class="foot">
-      <span>Built for educational and engineering understanding.</span>
-      <span>For legal precision, use the full patent publication document.</span>
+      <span>Educational interpretation of the published record.</span>
+      <span>Use the full publication PDF for official legal and technical details.</span>
     </footer>
   </body>
 </html>
