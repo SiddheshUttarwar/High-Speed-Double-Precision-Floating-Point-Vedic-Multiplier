@@ -4,119 +4,123 @@
 [![HDL](https://img.shields.io/badge/HDL-Verilog-orange)](#)
 [![CI](https://img.shields.io/badge/CI-Icarus%20Verilog-black)](.github/workflows/icarus-ci.yml)
 
-RTL implementation of a 64-bit floating-point multiplier using hierarchical Vedic multiplication for mantissa computation.
+A user-ready Verilog RTL implementation of a 64-bit floating-point multiplier that uses a hierarchical Vedic multiplier for mantissa multiplication.
 
-## Patent Disclosure
+## What This Repository Is For
 
-One part of this work is associated with a patented (or patent-pending) **Prime Bit Vedic Multiplier** concept.
+Use this repository if you want to:
 
-- See [Patent Notice](docs/legal/PATENT_NOTICE.md) for IP and usage clarification.
-- Patent reference file is included in this repository as [`Patent.pdf`](Patent.pdf).
-- Application (India): `202341051131 A` | Filed: `29/07/2023` | Published: `01/09/2023`
-- If you plan commercial adoption, review the patent details and obtain permission from the patent holder(s) where required.
+- Study a modular floating-point multiplier datapath in Verilog.
+- Simulate the design in both Icarus Verilog and Vivado xsim.
+- Reuse or extend the Vedic-based mantissa multiplier hierarchy.
 
-## Project Scope
+## Architecture Summary
 
-This design multiplies two IEEE-754 double-precision style operands by splitting the datapath into:
+The design processes two 64-bit operands through four paths:
 
-- Sign path: XOR of input signs.
-- Exponent path: exponent addition with bias subtraction.
-- Mantissa path: 53x53 Vedic multiplier hierarchy (including implicit leading 1s).
-- Normalization path: select/shift mantissa and adjust exponent.
+- Sign path: `mul[63] = a[63] ^ b[63]`
+- Exponent path: exponent addition with IEEE-754 bias subtraction
+- Mantissa path: 53x53 Vedic multiplier hierarchy (with implicit leading `1`)
+- Normalization path: mantissa/exponent adjustment from product MSB
 
 ![Double-precision architecture](docs/images/double_precision_architecture.svg)
 
-## Important Notes
+## Functional Scope
 
-- This RTL is focused on normalized finite operands.
-- Special-case handling for NaN, Infinity, denormals/subnormals, and full IEEE rounding modes is not implemented in the current design.
-- Verification vectors are therefore chosen from normalized values.
+Current RTL behavior is targeted at normalized finite operands.
 
-## Repository Layout
+Not currently implemented:
 
-- `double_precision.v`: top-level floating-point multiplier.
-- `exponent.v`, `normalizer.v`: exponent and normalization stages.
-- `vedic_*.v`: hierarchical Vedic multiplier blocks.
-- `adder*.v`, `mux*.v`, `*_gate.v`: arithmetic and logic primitives.
-- `tb/tb_double_precision.v`: self-checking directed testbench.
-- `rtl_sources.f`: ordered source list for simulation flows.
-- `scripts/run_vivado.tcl`: Vivado batch simulation script.
-- `run_icarus.*`, `run_vivado.*`: tool-specific runners.
-- `docs/legal/PATENT_NOTICE.md`: patent/IP usage note for this repository.
-- `Patent.pdf`: uploaded patent reference document.
+- NaN handling
+- Infinity handling
+- Subnormal/denormal handling
+- IEEE-754 rounding modes beyond the current logic
 
-## Run with Icarus Verilog
+## Quick Start
 
-### Linux/macOS
+### Icarus Verilog
+
+Linux/macOS:
 
 ```bash
 make run
 ```
 
-### Windows (CMD)
+Windows CMD:
 
 ```bat
 run_icarus.bat
 ```
 
-### Windows (PowerShell)
+Windows PowerShell:
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File .\run_icarus.ps1
 ```
 
-Expected summary line:
+Expected summary:
 
 ```text
 PASS: all directed floating-point vectors matched.
 ```
 
-Waveform output: `wave.vcd`
+Waveform file: `wave.vcd`
 
-## Run with Vivado (xsim)
+### Vivado (xsim)
 
-### Windows (CMD)
+Windows CMD:
 
 ```bat
 run_vivado.bat
 ```
 
-### Windows (PowerShell)
+Windows PowerShell:
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File .\run_vivado.ps1
 ```
 
-This executes:
+Vivado flow steps:
 
-1. `xvlog` compile using `rtl_sources.f`.
-2. `xvlog` compile of `tb/tb_double_precision.v`.
-3. `xelab` elaboration of `tb_double_precision`.
-4. `xsim -runall` simulation.
+1. Compile RTL from `rtl_sources.f`
+2. Compile testbench `tb/tb_double_precision.v`
+3. Elaborate `tb_double_precision`
+4. Run simulation to completion
 
-## Verification
+## Verification Approach
 
-The testbench applies directed IEEE-754 vectors and compares DUT output against known-good expected hex values.
+`tb/tb_double_precision.v` is a self-checking directed testbench using known IEEE-754 hex vectors, including:
 
-Vectors include:
+- Positive normalized values
+- Fractional values
+- Sign-combination checks (negative x positive, negative x negative)
 
-- Positive normalized multiplication (`1.0 x 1.0`, `1.5 x 2.5`, `3.0 x 5.0`, etc.).
-- Fractional values (`0.5 x 0.5`, `10.0 x 0.75`).
-- Sign behavior checks (`-1.0 x 2.0`, `-3.5 x -2.0`, `-6.25 x 0.5`).
+## Project Structure
 
-## CI
+- `double_precision.v`: top-level DUT
+- `exponent.v`, `normalizer.v`: exponent/normalization stages
+- `vedic_*.v`: hierarchical Vedic multiplier blocks
+- `adder*.v`, `mux*.v`, `*_gate.v`: arithmetic and gate primitives
+- `tb/tb_double_precision.v`: verification testbench
+- `rtl_sources.f`: simulation compile order
+- `scripts/run_vivado.tcl`: Vivado batch script
+- `run_icarus.*`, `run_vivado.*`: user runner scripts
+- `docs/legal/PATENT_NOTICE.md`: patent and IP notice
+- `Patent.pdf`: patent reference document in this repo
 
-GitHub Actions workflow at `.github/workflows/icarus-ci.yml` runs the Icarus simulation on every push and pull request.
+## Patent and Usage Notice
 
-## Quality Improvements Included
+Part of this design is associated with a patented (or patent-pending) Prime Bit Vedic Multiplier concept.
 
-- Replaced logical operators (`&&`, `||`) with bitwise operators in gate/adder primitives for hardware-accurate intent.
-- Fixed undeclared intermediate net in `adder13bit.v`.
-- Converted combinational assignments in `normalizer.v` to blocking assignments.
-- Replaced legacy empty/stub files with valid compatibility wrappers where needed (`adder_3bit.v`, `adder_6bit.v`).
+- Patent reference: [`Patent.pdf`](Patent.pdf)
+- India application: `202341051131 A`
+- Filed: `29/07/2023`
+- Published: `01/09/2023`
+
+Read [Patent Notice](docs/legal/PATENT_NOTICE.md) before commercial use.
 
 ## License
 
-Distributed under the [MIT License](LICENSE).
+Code is available under the [MIT License](LICENSE).
 
-Patent-related rights are addressed separately in [Patent Notice](docs/legal/PATENT_NOTICE.md).
+Patent rights are separate from copyright licensing.
