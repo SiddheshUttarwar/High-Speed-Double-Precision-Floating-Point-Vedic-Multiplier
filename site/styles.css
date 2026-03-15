@@ -1,0 +1,159 @@
+:root {
+  --ink: #0f2234;
+  --accent: #0a8f77;
+  --accent-2: #ef7f1a;
+  --paper: #f6fbff;
+  --line: #cfe0ec;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Space Grotesk", "Segoe UI", sans-serif;
+  color: var(--ink);
+  background: radial-gradient(circle at 10% 10%, #e8fff7 0%, transparent 35%),
+    radial-gradient(circle at 90% 0%, #fff0e3 0%, transparent 30%),
+    linear-gradient(160deg, #f7fbff 0%, #eef5fb 100%);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.hero {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 4.5rem 1.25rem 1.75rem;
+}
+
+.tag {
+  display: inline-block;
+  margin: 0 0 0.8rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.25rem 0.8rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  background: #ffffffcc;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(1.8rem, 4.2vw, 3.1rem);
+  line-height: 1.1;
+}
+
+.sub {
+  margin-top: 0.9rem;
+  max-width: 65ch;
+  font-size: 1.03rem;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  margin-top: 1.2rem;
+}
+
+.btn {
+  text-decoration: none;
+  padding: 0.65rem 1rem;
+  border-radius: 0.65rem;
+  font-weight: 600;
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.primary {
+  background: var(--accent);
+  color: white;
+  box-shadow: 0 10px 24px #0a8f7738;
+}
+
+.ghost {
+  border: 1px solid var(--line);
+  background: #ffffffd8;
+  color: var(--ink);
+}
+
+.grid {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0.6rem 1.25rem 2.8rem;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.95rem;
+}
+
+.card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  padding: 1rem 1rem 1.1rem;
+  box-shadow: 0 14px 28px #1d34420d;
+}
+
+.card h2 {
+  margin: 0;
+  font-size: 1.06rem;
+}
+
+.card p {
+  margin: 0.55rem 0 0;
+  font-size: 0.95rem;
+  line-height: 1.45;
+}
+
+.mono {
+  font-family: "JetBrains Mono", Consolas, monospace;
+}
+
+.card a {
+  color: var(--accent);
+}
+
+.foot {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0 1.25rem 2.1rem;
+  font-size: 0.85rem;
+  display: flex;
+  gap: 0.9rem;
+  flex-wrap: wrap;
+  color: #345064;
+}
+
+.bg-orb {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(55px);
+  pointer-events: none;
+  opacity: 0.25;
+}
+
+.orb-a {
+  width: 300px;
+  height: 300px;
+  right: -90px;
+  top: -80px;
+  background: var(--accent-2);
+}
+
+.orb-b {
+  width: 260px;
+  height: 260px;
+  left: -90px;
+  bottom: -100px;
+  background: var(--accent);
+}
+
+@media (max-width: 760px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

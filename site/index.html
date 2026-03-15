@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Double-Precision Vedic Multiplier</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <div class="bg-orb orb-a"></div>
+    <div class="bg-orb orb-b"></div>
+    <header class="hero">
+      <p class="tag">VLSI RTL Project</p>
+      <h1>High-Speed Double-Precision Floating-Point Vedic Multiplier</h1>
+      <p class="sub">
+        64-bit floating-point multiplier with hierarchical Vedic mantissa multiplication and dual simulation flow
+        for Icarus Verilog and Vivado xsim.
+      </p>
+      <div class="actions">
+        <a class="btn primary" href="https://github.com/SiddheshUttarwar/High-Speed-Double-Precision-Floating-Point-Vedic-Multiplier">View Source</a>
+        <a class="btn ghost" href="https://github.com/SiddheshUttarwar/High-Speed-Double-Precision-Floating-Point-Vedic-Multiplier/blob/main/README.md">User Guide</a>
+      </div>
+    </header>
+
+    <main class="grid">
+      <section class="card">
+        <h2>Architecture</h2>
+        <p>Sign XOR, exponent bias-adjust, 53x53 Vedic mantissa multiplier, and normalization stage.</p>
+      </section>
+      <section class="card">
+        <h2>Verification</h2>
+        <p>Self-checking testbench with directed IEEE-754 vectors and automatic pass/fail reporting.</p>
+      </section>
+      <section class="card">
+        <h2>Simulation</h2>
+        <p class="mono">make run<br>run_icarus.bat<br>run_vivado.bat</p>
+      </section>
+      <section class="card">
+        <h2>IP Notice</h2>
+        <p>This project includes a patent-related component. See <a href="https://github.com/SiddheshUttarwar/High-Speed-Double-Precision-Floating-Point-Vedic-Multiplier/blob/main/docs/legal/PATENT_NOTICE.md">Patent Notice</a>.</p>
+      </section>
+    </main>
+
+    <footer class="foot">
+      <span>Built for research and engineering evaluation.</span>
+      <span>MIT License for source code.</span>
+    </footer>
+  </body>
+</html>

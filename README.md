@@ -4,8 +4,11 @@
 [![HDL](https://img.shields.io/badge/HDL-Verilog-orange)](#)
 [![CI](https://img.shields.io/badge/CI-Icarus%20Verilog-black)](.github/workflows/icarus-ci.yml)
 [![Hygiene](https://img.shields.io/badge/Repo-Hygiene-blue)](.github/workflows/repo-hygiene.yml)
+[![Website](https://img.shields.io/badge/Website-GitHub%20Pages-0a8f77)](https://siddheshuttarwar.github.io/High-Speed-Double-Precision-Floating-Point-Vedic-Multiplier/)
 
 A user-ready Verilog RTL implementation of a 64-bit floating-point multiplier that uses a hierarchical Vedic multiplier for mantissa multiplication.
+
+Live project site: <https://siddheshuttarwar.github.io/High-Speed-Double-Precision-Floating-Point-Vedic-Multiplier/>
 
 ## What This Repository Is For
 
