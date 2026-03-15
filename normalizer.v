@@ -28,12 +28,12 @@ output reg [10:0] oexp;
 always @(*)
     if(in[105]==1)
     begin
-        op <= in[104:53];
-        oexp <= exp+1'd1;
+        op = in[104:53];
+        oexp = exp+1'd1;
     end
     else
     begin
-        op <= in[103:52];
-        oexp<=exp;
+        op = in[103:52];
+        oexp = exp;
     end
 endmodule

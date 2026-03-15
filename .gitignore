@@ -1,0 +1,15 @@
+# Simulation/build artifacts
+build/
+xsim.dir/
+*.jou
+*.log
+*.pb
+*.wdb
+*.vcd
+*.vvp
+simv
+
+# Editor and OS files
+*.tmp
+Thumbs.db
+.DS_Store

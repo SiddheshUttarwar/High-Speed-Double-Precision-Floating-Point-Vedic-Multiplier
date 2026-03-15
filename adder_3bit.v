@@ -1,0 +1,15 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// File Name : adder_3bit
+// Description : Legacy-compatible 3-bit adder wrapper
+//////////////////////////////////////////////////////////////////////////////////
+
+module adder_3bit(sum,carry,a,b,cin);
+input [2:0] a,b;
+input cin;
+output [2:0] sum;
+output carry;
+
+adder3bit impl(sum,carry,a,b,cin);
+
+endmodule

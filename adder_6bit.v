@@ -1,26 +1,15 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
-// Create Date: 11/03/2022 10:31:42 PM
-// Design Name: 
-// Module Name: adder_6bit
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
-// 
-// Dependencies: 
-// 
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
-// 
+// File Name : adder_6bit
+// Description : Legacy-compatible 6-bit adder wrapper
 //////////////////////////////////////////////////////////////////////////////////
 
+module adder_6bit(sum,carry,a,b,cin);
+input [5:0] a,b;
+input cin;
+output [5:0] sum;
+output carry;
 
-module adder_6bit(
+adder6bit impl(sum,carry,a,b,cin);
 
-    );
 endmodule

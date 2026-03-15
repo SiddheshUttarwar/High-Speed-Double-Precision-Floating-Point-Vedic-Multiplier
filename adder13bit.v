@@ -26,7 +26,7 @@ input cin;
 output [12:0] sum;
 wire [11:0] temp;
 output carry;
-wire sl;
+wire s;
 wire c;
 adder12bit ad1(temp,c,a[11:0],b[11:0],cin);
 full_adder ad2(s,carry,a[12],b[12],c);

@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="600" viewBox="0 0 1200 600">
+  <defs>
+    <style>
+      .title { font: 700 30px 'Segoe UI', Arial, sans-serif; fill: #11263d; }
+      .label { font: 600 18px 'Segoe UI', Arial, sans-serif; fill: #123b60; }
+      .small { font: 500 15px 'Segoe UI', Arial, sans-serif; fill: #1b517e; }
+      .io { fill: #fff6e5; stroke: #b17623; stroke-width: 2; rx: 10; ry: 10; }
+      .block { fill: #eaf4ff; stroke: #2f6a9f; stroke-width: 2; rx: 12; ry: 12; }
+      .mul { fill: #ebfaee; stroke: #2f8b3d; stroke-width: 2; rx: 12; ry: 12; }
+      .arrow { stroke: #244e77; stroke-width: 2.5; marker-end: url(#m); fill: none; }
+    </style>
+    <marker id="m" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#244e77"/>
+    </marker>
+  </defs>
+
+  <text x="600" y="48" text-anchor="middle" class="title">Double-Precision Floating-Point Vedic Multiplier</text>
+
+  <rect x="40" y="110" width="220" height="95" class="io"/>
+  <text x="150" y="148" text-anchor="middle" class="label">Input A[63:0]</text>
+  <text x="150" y="174" text-anchor="middle" class="small">sign | exponent | mantissa</text>
+
+  <rect x="40" y="250" width="220" height="95" class="io"/>
+  <text x="150" y="288" text-anchor="middle" class="label">Input B[63:0]</text>
+  <text x="150" y="314" text-anchor="middle" class="small">sign | exponent | mantissa</text>
+
+  <rect x="340" y="90" width="240" height="110" class="block"/>
+  <text x="460" y="132" text-anchor="middle" class="label">Sign Logic</text>
+  <text x="460" y="160" text-anchor="middle" class="small">mul[63] = a[63] xor b[63]</text>
+
+  <rect x="340" y="230" width="240" height="110" class="block"/>
+  <text x="460" y="272" text-anchor="middle" class="label">Exponent Block</text>
+  <text x="460" y="300" text-anchor="middle" class="small">exp = ea + eb - bias</text>
+
+  <rect x="340" y="370" width="240" height="130" class="mul"/>
+  <text x="460" y="417" text-anchor="middle" class="label">Mantissa Multiplier</text>
+  <text x="460" y="445" text-anchor="middle" class="small">53x53 Vedic hierarchy</text>
+  <text x="460" y="470" text-anchor="middle" class="small">(106-bit product)</text>
+
+  <rect x="690" y="250" width="260" height="130" class="block"/>
+  <text x="820" y="300" text-anchor="middle" class="label">Normalizer</text>
+  <text x="820" y="328" text-anchor="middle" class="small">Adjust mantissa/exponent</text>
+  <text x="820" y="353" text-anchor="middle" class="small">using product MSB</text>
+
+  <rect x="1000" y="250" width="170" height="110" class="io"/>
+  <text x="1085" y="294" text-anchor="middle" class="label">Output mul[63:0]</text>
+  <text x="1085" y="322" text-anchor="middle" class="small">IEEE-754 packed</text>
+
+  <path d="M260 157 L340 145" class="arrow"/>
+  <path d="M260 297 L340 285" class="arrow"/>
+  <path d="M260 157 L340 425" class="arrow"/>
+  <path d="M260 297 L340 425" class="arrow"/>
+  <path d="M580 285 L690 305" class="arrow"/>
+  <path d="M580 435 L690 335" class="arrow"/>
+  <path d="M580 145 L1000 280" class="arrow"/>
+  <path d="M950 305 L1000 305" class="arrow"/>
+</svg>
