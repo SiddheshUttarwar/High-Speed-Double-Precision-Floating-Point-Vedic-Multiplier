@@ -15,13 +15,15 @@ This repository includes implementation ideas related to a patented (or patent-p
 
 ## Reference Document
 
-- Local reference provided by project owner: `d:\Documents\Research Papers\Patent.pdf`
+- In-repository patent reference: [`Patent.pdf`](../../Patent.pdf)
+- SHA-256: `1F37D25E7981844FCB99611D5B1BF0000C685D5FF13F293AD3395E089722DE84`
 
 ## Maintainer Action
 
-To make this notice legally precise, add these details when available:
+To make this notice legally precise, add these details in this file (from `Patent.pdf`) when available:
 
 - Patent/application number
 - Jurisdiction/country
 - Filing and publication dates
 - Patent owner/assignee
+- Official title used in the filing/publication

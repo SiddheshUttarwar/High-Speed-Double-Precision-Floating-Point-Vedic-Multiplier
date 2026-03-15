@@ -11,6 +11,7 @@ RTL implementation of a 64-bit floating-point multiplier using hierarchical Vedi
 One part of this work is associated with a patented (or patent-pending) **Prime Bit Vedic Multiplier** concept.
 
 - See [Patent Notice](docs/legal/PATENT_NOTICE.md) for IP and usage clarification.
+- Patent reference file is included in this repository as [`Patent.pdf`](Patent.pdf).
 - If you plan commercial adoption, review the patent details and obtain permission from the patent holder(s) where required.
 
 ## Project Scope
@@ -41,6 +42,7 @@ This design multiplies two IEEE-754 double-precision style operands by splitting
 - `scripts/run_vivado.tcl`: Vivado batch simulation script.
 - `run_icarus.*`, `run_vivado.*`: tool-specific runners.
 - `docs/legal/PATENT_NOTICE.md`: patent/IP usage note for this repository.
+- `Patent.pdf`: uploaded patent reference document.
 
 ## Run with Icarus Verilog
 
