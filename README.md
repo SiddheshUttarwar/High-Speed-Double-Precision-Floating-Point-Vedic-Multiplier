@@ -12,6 +12,7 @@ One part of this work is associated with a patented (or patent-pending) **Prime 
 
 - See [Patent Notice](docs/legal/PATENT_NOTICE.md) for IP and usage clarification.
 - Patent reference file is included in this repository as [`Patent.pdf`](Patent.pdf).
+- Application (India): `202341051131 A` | Filed: `29/07/2023` | Published: `01/09/2023`
 - If you plan commercial adoption, review the patent details and obtain permission from the patent holder(s) where required.
 
 ## Project Scope

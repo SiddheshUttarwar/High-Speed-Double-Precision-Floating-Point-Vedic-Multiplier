@@ -18,12 +18,14 @@ This repository includes implementation ideas related to a patented (or patent-p
 - In-repository patent reference: [`Patent.pdf`](../../Patent.pdf)
 - SHA-256: `1F37D25E7981844FCB99611D5B1BF0000C685D5FF13F293AD3395E089722DE84`
 
-## Maintainer Action
+## Extracted Patent Details
 
-To make this notice legally precise, add these details in this file (from `Patent.pdf`) when available:
+- Jurisdiction/country: `India`
+- Application number: `202341051131 A`
+- Filing date: `29/07/2023`
+- Publication date: `01/09/2023`
+- Official title: `EFFICIENT PRIME BIT VEDIC MULTIPLIER FOR DOUBLE PRECISION FLOATING POINT NUMBERS`
+- Applicant/assignee (as listed): `VALLURUPALLI NAGESWARA RAO VIGNANA JYOTHI INSTITUTE OF ENGINEERING AND TECHNOLOGY`
+- Inventors (as listed): `Dr. Aruru Sai Kumar`, `N Neelima`, `Siddhesh Uttarwar`
 
-- Patent/application number
-- Jurisdiction/country
-- Filing and publication dates
-- Patent owner/assignee
-- Official title used in the filing/publication
+These values were extracted from the uploaded `Patent.pdf` (Patent Office Journal entry).
