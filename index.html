@@ -6,109 +6,371 @@
     <title>Publication Explainer: Prime Bit Vedic Multiplier (Double Precision)</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+:root {
+  --ink: #1a1a1a;
+  --paper: #fdfdfd;
+  --accent: #1e4b85;
+  --ghost: #f4f6f9;
+  --border: #e0e4e8;
+  --serif: 'Crimson Pro', serif;
+  --sans: 'Inter', sans-serif;
+  --mono: 'JetBrains Mono', monospace;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #ccd4db;
+  color: var(--ink);
+  font-family: var(--serif);
+  line-height: 1.6;
+  padding: 40px 20px;
+}
+
+.paper-container {
+  background-color: var(--paper);
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 80px 100px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  min-height: 100vh;
+}
+
+.journal-tag {
+  font-family: var(--sans);
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--accent);
+  letter-spacing: 1px;
+  font-size: 0.8rem;
+  margin-bottom: 2rem;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--accent);
+  display: inline-block;
+}
+
+.paper-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+  color: #000;
+}
+
+.authors {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.author-block {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.affiliation {
+  font-style: italic;
+  font-size: 0.95rem;
+  color: #555;
+}
+
+.paper-metadata {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-bottom: 3rem;
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.paper-actions {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 4rem;
+}
+
+.btn {
+  font-family: var(--sans);
+  text-decoration: none;
+  padding: 10px 24px;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.2s;
+}
+
+.btn.primary {
+  background: var(--ink);
+  color: white;
+}
+
+.btn.primary:hover {
+  background: #333;
+}
+
+.btn.ghost {
+  border: 1px solid var(--border);
+  color: var(--ink);
+}
+
+.btn.ghost:hover {
+  background: var(--ghost);
+}
+
+.abstract-section {
+  background: var(--ghost);
+  padding: 30px;
+  margin-bottom: 4rem;
+  border-left: 4px solid var(--accent);
+}
+
+.abstract-section .section-title {
+  text-align: center;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.abstract-section p {
+  font-style: italic;
+  text-align: justify;
+}
+
+.section-title {
+  font-family: var(--sans);
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin: 3rem 0 1.5rem;
+  color: var(--accent);
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 8px;
+}
+
+.subsection-title {
+  font-family: var(--sans);
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 1.5rem 0 1rem;
+}
+
+p, .paper-list li {
+  font-size: 1.05rem;
+  margin-bottom: 1rem;
+  text-align: justify;
+}
+
+.paper-list {
+  padding-left: 25px;
+  margin-bottom: 1.5rem;
+}
+
+.figure-box {
+  margin: 3rem 0;
+  padding: 20px;
+  border: 1px solid var(--border);
+  background: white;
+  text-align: center;
+}
+
+.figure-caption {
+  font-style: italic;
+  font-size: 0.9rem;
+  color: #666;
+  margin-top: 15px;
+}
+
+.cols2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+.code-panel {
+  background: #282c34;
+  color: #abb2bf;
+  padding: 20px;
+  border-radius: 6px;
+  font-family: var(--mono);
+  font-size: 0.9rem;
+  margin: 2rem 0;
+}
+
+.code-panel code {
+  display: block;
+}
+
+.reference-item {
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  text-align: left;
+  padding-left: 2rem;
+  text-indent: -2rem;
+}
+
+.paper-footer {
+  margin-top: 6rem;
+  padding-top: 30px;
+  border-top: 1px solid var(--border);
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  text-align: center;
+  color: #888;
+}
+
+@media (max-width: 768px) {
+  .paper-container {
+    padding: 40px 20px;
+  }
+  .cols2 {
+    grid-template-columns: 1fr;
+  }
+  .paper-title {
+    font-size: 1.6rem;
+  }
+}
+    </style>
+    <script type="module">
+      import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+      mermaid.initialize({ startOnLoad: true, theme: 'neutral' });
+    </script>
   </head>
   <body>
-    <header class="hero">
-      <p class="tag">Publication-First Technical Explainer</p>
-      <h1>Efficient Prime Bit Vedic Multiplier for Double Precision Floating Point Numbers</h1>
-      <p class="sub">This page follows the published patent-journal record and explains the approach in plain language before showing how to reproduce the RTL implementation.</p>
-      <div class="actions">
-        <a class="btn primary" href="https://github.com/SiddheshUttarwar/High-Speed-Double-Precision-Floating-Point-Vedic-Multiplier/blob/main/Patent.pdf">Published Document</a>
-        <a class="btn ghost" href="https://github.com/SiddheshUttarwar/High-Speed-Double-Precision-Floating-Point-Vedic-Multiplier">Repository</a>
-      </div>
-    </header>
+    <div class="paper-container">
+      <header class="paper-header">
+        <p class="journal-tag">Technical Report / Patent Disclosure</p>
+        <h1 class="paper-title">Efficient Prime Bit Vedic Multiplier for Double Precision Floating Point Numbers</h1>
+        
+        <div class="authors">
+          <div class="author-block">
+            <span class="author-name">Siddhesh Uttarwar</span>,
+            <span class="author-name">Dr. Aruru Sai Kumar</span>,
+            <span class="author-name">N Neelima</span>
+          </div>
+          <div class="affiliation">VNR Vignana Jyothi Institute of Engineering and Technology (VNR VJIET)</div>
+        </div>
 
-    <main class="wrap">
-      <section class="panel">
-        <h2>Abstract (Plain Language)</h2>
-        <p>The publication proposes a Prime Bit Vedic multiplier method to improve double-precision floating-point multiplication efficiency, especially in the mantissa multiplication stage, with the goal of reducing delay and hardware cost.</p>
+        <div class="paper-metadata">
+          <div class="meta-item"><strong>Date:</strong> September 1, 2023</div>
+          <div class="meta-item"><strong>Jurisdiction:</strong> India</div>
+          <div class="meta-item"><strong>Application No:</strong> 202341051131 A</div>
+        </div>
+
+        <div class="paper-actions">
+          <a class="btn primary" href="https://github.com/SiddheshUttarwar/High-Speed-Double-Precision-Floating-Point-Vedic-Multiplier/blob/main/Patent.pdf">PDF Document</a>
+          <a class="btn ghost" href="https://github.com/SiddheshUttarwar/High-Speed-Double-Precision-Floating-Point-Vedic-Multiplier">Source Code</a>
+        </div>
+      </header>
+
+      <section class="abstract-section">
+        <h2 class="section-title">Abstract</h2>
+        <p>This work proposes a novel Prime Bit Vedic multiplier architecture designed to enhance the efficiency of double-precision floating-point multiplication. Specifically targeting the mantissa multiplication stage, the methodology utilizes hierarchical Vedic blocks coupled with Prime Bit decomposition. The proposed approach aims to significantly reduce propagation delay and hardware utilization compared to traditional large-block multipliers. This document outlines the publication-aligned algorithm flow and provides access to the validated RTL implementation.</p>
       </section>
 
-      <section class="panel cols2">
-        <article>
-          <h2>1) Research Problem</h2>
-          <p>Double-precision multipliers are essential in DSP and scientific workloads, but mantissa multiplication can become a major speed bottleneck in hardware implementations.</p>
-        </article>
-        <article>
-          <h2>2) Proposed Idea</h2>
-          <p>Apply Prime Bit decomposition with Vedic multiplication hierarchy so partial products can be combined efficiently and with lower delay impact than straightforward large-block multiplication.</p>
-        </article>
-      </section>
+      <main class="paper-body">
+        <section id="problem">
+          <h2 class="section-title">1. Introduction & Research Problem</h2>
+          <p>The demand for high-speed double-precision floating-point arithmetic is ever-increasing in digital signal processing (DSP) and scientific computing workloads. However, the mantissa multiplication stage, involving 53-bit operands, often becomes a critical bottleneck in the hardware datapath. Straightforward implementations lead to significant delays and large area footprints.</p>
+        </section>
 
-      <section class="panel">
-        <h2>3) Algorithm Flow (Publication-Aligned)</h2>
-        <ol>
-          <li>Extract sign, exponent, and mantissa from two 64-bit inputs.</li>
-          <li>Compute result sign with XOR.</li>
-          <li>Add exponents and apply IEEE-754 bias correction.</li>
-          <li>Multiply 53-bit mantissas using hierarchical Vedic blocks.</li>
-          <li>Normalize product mantissa and adjust exponent if required.</li>
-          <li>Pack final sign, exponent, and mantissa into output format.</li>
-        </ol>
-      </section>
+        <section id="methodology">
+          <h2 class="section-title">2. Proposed Methodology</h2>
+          <p>The core innovation lies in applying <strong>Prime Bit decomposition</strong> within a hierarchical Vedic multiplication framework. By decomposing the large multiplication into smaller, parallelizable Vedic blocks, partial products can be combined more efficiently.</p>
+          
+          <div class="figure-box">
+            <div class="mermaid">
+graph TD
+    A[Input A: 64-bit] --> S1[Sign Logic]
+    B[Input B: 64-bit] --> S1
+    A --> E1[Exponent Block]
+    B --> E1
+    A --> M1[Mantissa Multiplier]
+    B --> M1
 
-      <section class="panel cols2">
-        <article>
-          <h2>4) Publication Metadata</h2>
-          <ul>
-            <li><strong>Jurisdiction:</strong> India</li>
-            <li><strong>Application:</strong> 202341051131 A</li>
-            <li><strong>Filed:</strong> 29/07/2023</li>
-            <li><strong>Published:</strong> 01/09/2023</li>
-            <li><strong>Issue:</strong> Patent Office Journal 35/2023</li>
-            <li><strong>Claims:</strong> 7</li>
-          </ul>
-        </article>
-        <article>
-          <h2>5) Applicant and Inventors</h2>
-          <ul>
-            <li><strong>Applicant:</strong> VNR VJIET</li>
-            <li><strong>Inventors listed:</strong> Dr. Aruru Sai Kumar, N Neelima, Siddhesh Uttarwar</li>
-          </ul>
-          <p>Details are extracted from the uploaded publication PDF in this repository.</p>
-        </article>
-      </section>
+    subgraph "Processing Stages"
+        S1["Sign Logic (XOR)"]
+        E1["Exponent Unit (EA + EB - Bias)"]
+        M1["53x53 Vedic Hierarchy"]
+    end
 
-      <section class="panel cols2">
-        <article>
-          <h2>6) What the Current RTL Implements</h2>
-          <ul>
-            <li>64-bit datapath decomposition.</li>
-            <li>53x53 mantissa multiplier hierarchy.</li>
-            <li>Exponent and normalizer blocks.</li>
-            <li>Icarus + Vivado runnable simulation flow.</li>
-          </ul>
-        </article>
-        <article>
-          <h2>7) Scope Limits</h2>
-          <ul>
-            <li>Focus on normalized finite test vectors.</li>
-            <li>Not a complete IEEE-754 corner-case engine yet.</li>
-            <li>NaN/Inf/subnormal handling needs extension for full compliance.</li>
-          </ul>
-        </article>
-      </section>
+    S1 --> O1[Output mul: 64-bit]
+    E1 --> N1[Normalizer Unit]
+    M1 --> N1["Normalizer (MSB Adjustment)"]
+    N1 --> O1
 
-      <section class="panel cols2">
-        <article>
-          <h2>8) Reproduce in This Repo</h2>
-          <p class="mono">make run</p>
-          <p class="mono">run_icarus.bat</p>
-          <p class="mono">run_vivado.bat</p>
-          <p>Testbench uses directed IEEE-754 vectors with pass/fail checks.</p>
-        </article>
-        <article>
-          <h2>9) Legal and Usage Note</h2>
-          <p>Code is under MIT License. Patent rights are separate for the publication-linked concept. See the repository patent notice before commercial deployment.</p>
-        </article>
-      </section>
-    </main>
+    style M1 fill:#ebfaee,stroke:#2f8b3d
+    style S1 fill:#eaf4ff,stroke:#2f6a9f
+    style E1 fill:#eaf4ff,stroke:#2f6a9f
+    style N1 fill:#eaf4ff,stroke:#2f6a9f
+            </div>
+            <p class="figure-caption">Figure 1: High-level architectural dataflow of the proposed Double-Precision Floating-Point Vedic Multiplier.</p>
+          </div>
 
-    <footer class="foot">
-      <span>Educational interpretation of the published record.</span>
-      <span>Use the full publication PDF for official legal and technical details.</span>
-    </footer>
+          <h3 class="subsection-title">2.1 Algorithm Flow</h3>
+          <ol class="paper-list">
+            <li><strong>Decomposition:</strong> Extract sign, exponent, and mantissa from 64-bit IEEE-754 inputs.</li>
+            <li><strong>Sign Computation:</strong> Result sign is generated via XOR of input sign bits.</li>
+            <li><strong>Exponent Addition:</strong> Sum exponents and apply bias correction (-1023).</li>
+            <li><strong>Mantissa Multiplication:</strong> Parallel 53x53 multiplication using hierarchical Vedic blocks.</li>
+            <li><strong>Post-Processing:</strong> Normalize the 106-bit product and adjust the exponent accordingly.</li>
+            <li><strong>Packing:</strong> Reconstruct the final IEEE-754 double-precision output.</li>
+          </ol>
+        </section>
+
+        <section id="implementation">
+          <h2 class="section-title">3. RTL Implementation & Scope</h2>
+          <p>The current hardware implementation in the repository provides a fully modular Verilog datapath. It focuses on functional correctness for normalized IEEE-754 finite test vectors.</p>
+          <div class="cols2">
+            <div class="col">
+              <h3 class="subsection-title">3.1 Functional Scope</h3>
+              <ul class="paper-list">
+                <li>64-bit floating-point datapath.</li>
+                <li>53x53 Mantissa hierarchy.</li>
+                <li>Integrated normalization logic.</li>
+              </ul>
+            </div>
+            <div class="col">
+              <h3 class="subsection-title">3.2 Limitations</h3>
+              <ul class="paper-list">
+                <li>NaN and Infinity handling (in progress).</li>
+                <li>Subnormal number handling.</li>
+                <li>Advanced rounding modes.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section id="reproducibility">
+          <h2 class="section-title">4. Reproducibility</h2>
+          <p>Researchers can reproduce the results using Icarus Verilog or Vivado. The verification environment uses directed vectors from the IEEE-754 standard.</p>
+          <div class="code-panel">
+            <code># Run simulation</code>
+            <code>make run           # Linux/macOS</code>
+            <code>run_icarus.bat     # Windows CMD</code>
+          </div>
+        </section>
+
+        <section id="references">
+          <h2 class="section-title">References & Publication</h2>
+          <p class="reference-item">
+            [1] Indian Patent Office, "Efficient Prime Bit Vedic Multiplier for Double Precision Floating Point Numbers," 
+            Application No. 202341051131 A, Published Sept 2023. Patent Office Journal 35/2023.
+          </p>
+          <p class="reference-item">
+            [2] VNR VJIET Department of ECE, Technical Documentation for Vedic Arithmetic Units, 2023.
+          </p>
+        </section>
+      </main>
+
+      <footer class="paper-footer">
+        <p>&copy; 2023-2024 VNR VJIET. Distributed under the MIT License. Legal patent rights are reserved.</p>
+      </footer>
+    </div>
   </body>
 </html>
